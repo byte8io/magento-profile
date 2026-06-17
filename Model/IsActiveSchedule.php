@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Byte8\Profile\Model;
 
 use Byte8\Profile\Api\Data\ScheduleInterface;
-use Byte8\Profile\Model\ResourceModel;
 
 /**
  * @inheritDoc
