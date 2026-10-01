@@ -258,10 +258,13 @@ class ScheduleConfig extends ConfigModel implements ScheduleConfigInterface
         $cronTimestamp = $this->getOnetimeProcessInstructions('timestamp');
         $canProcess = $this->getOnetimeProcessInstructions('can_process');
 
-        $format = match($this->getOnetimeProcessFrequency()) {
-            Frequency::CRON_DAILY, Frequency::CRON_WEEKLY => 'd H',
-            Frequency::CRON_MONTHLY => 'm-d H'
-        };
+        // Compare the full date down to the hour. A partial format such as
+        // 'd H' (day-of-month + hour) drops month and year, so e.g. '04 01'
+        // (4 Oct) sorts before '29 01' (29 Sep); each cron tick then advances
+        // the schedule a period until a day-of-month string happens to match
+        // today, firing the one-time full process on the wrong day. A full
+        // 'Y-m-d H' sorts chronologically for all frequencies.
+        $format = 'Y-m-d H';
 
         $scheduleTimestamp = $this->dateTime->gmtDate($format, strtotime($cronTimestamp));
         $currentTimestamp = $this->dateTime->gmtDate($format);

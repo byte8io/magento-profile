@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > `softcommerceltd` organisation; their compare links point there.
 
 ## [Unreleased]
+### Fixed
+- compare full timestamp in canRunOnetimeProcess so the one-time full process fires on the correct day (partial 'd H' format dropped month/year and misfired)
 
 ## [4.0.0] - 2026-06-13
 ### BREAKING CHANGES
