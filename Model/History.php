@@ -23,7 +23,7 @@ class History extends AbstractModel implements HistoryInterface, IdentityInterfa
     /**
      * @var string
      */
-    protected $_cacheTag = 'byte8_profile_history';
+    protected $_cacheTag = false;
 
     /**
      * @var string
@@ -43,7 +43,7 @@ class History extends AbstractModel implements HistoryInterface, IdentityInterfa
      */
     public function getIdentities()
     {
-        return [self::CACHE_TAG . '_' . $this->getId()];
+        return [];
     }
 
     /**

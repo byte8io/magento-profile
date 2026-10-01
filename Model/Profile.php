@@ -35,7 +35,7 @@ class Profile extends AbstractModel implements ProfileInterface, IdentityInterfa
      */
     public function getIdentities()
     {
-        return [$this->_eventPrefix . '_' . $this->getEntityId()];
+        return [];
     }
 
     /**

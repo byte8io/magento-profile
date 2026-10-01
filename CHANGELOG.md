@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > `softcommerceltd` organisation; their compare links point there.
 
 ## [Unreleased]
+### Changed
+- suppress frontend cache identities and $_cacheTag on backend-only entities (none render on a cached storefront page, so they only produced useless FPC/Varnish tag invalidation)
 ### Fixed
 - compare full timestamp in canRunOnetimeProcess so the one-time full process fires on the correct day (partial 'd H' format dropped month/year and misfired)
 

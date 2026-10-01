@@ -53,7 +53,7 @@ class Config extends AbstractModel implements ConfigInterface, IdentityInterface
      */
     public function getIdentities()
     {
-        return [$this->_eventPrefix . '_' . $this->getEntityId()];
+        return [];
     }
 
     /**
