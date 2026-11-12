@@ -40,7 +40,7 @@ class MassStatus extends AbstractMassAction implements HttpPostActionInterface
     protected function massAction(Collection $collection): void
     {
         $ids = $collection->getAllIds();
-        $status = (int) $this->getRequest()->getParam('status');
+        $status = (string) $this->getRequest()->getParam('status');
 
         $this->resource->updateStatus($status, $ids);
 
