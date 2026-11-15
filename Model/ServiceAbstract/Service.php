@@ -418,6 +418,21 @@ abstract class Service
     }
 
     /**
+     * Forward the batch boundary to the given services that implement BatchResetInterface.
+     *
+     * @param iterable $services
+     * @return void
+     */
+    protected function resetServicesBatchState(iterable $services): void
+    {
+        foreach ($services as $service) {
+            if ($service instanceof BatchResetInterface) {
+                $service->resetBatchState();
+            }
+        }
+    }
+
+    /**
      * Extract sort order from service configuration
      *
      * @param array $item Service configuration with optional 'sortOrder' key

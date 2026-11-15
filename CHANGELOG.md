@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > `softcommerceltd` organisation; their compare links point there.
 
 ## [Unreleased]
+### Added
+- ServiceAbstract\BatchResetInterface::resetBatchState() for services that accumulate state across the entities of one batch, plus Service::resetServicesBatchState() to forward the batch boundary to the services implementing it (first user: item import url key collision guard)
 ### Changed
 - suppress frontend cache identities and $_cacheTag on backend-only entities (none render on a cached storefront page, so they only produced useless FPC/Varnish tag invalidation)
 ### Fixed
