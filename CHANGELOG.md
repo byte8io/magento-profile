@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > `softcommerceltd` organisation; their compare links point there.
 
 ## [Unreleased]
+
+## [4.1.0] - 2026-11-16
 ### Added
 - ServiceAbstract\BatchResetInterface::resetBatchState() for services that accumulate state across the entities of one batch, plus Service::resetServicesBatchState() to forward the batch boundary to the services implementing it (first user: item import url key collision guard)
 ### Changed
